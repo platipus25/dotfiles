@@ -66,8 +66,8 @@ call plug#end()
 
 " map to <Leader>cf in C++ code
 autocmd FileType c,cpp,objc nnoremap <buffer><C-K> :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <buffer><C-K> :ClangFormat<CR>
-autocmd FileType c,cpp,objc inoremap <buffer><C-K> :ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><C-K> <c-o>:ClangFormat<CR>
+autocmd FileType c,cpp,objc inoremap <buffer><C-K> <esc>:ClangFormat<CR>a
 
 function! Formatonsave()
   let l:formatdiff = 1
@@ -76,3 +76,5 @@ endfunction
 autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
 
 autocmd FileType c ClangFormatAutoEnable
+
+:inoremap jk <esc>
