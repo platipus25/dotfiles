@@ -78,3 +78,9 @@ autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
 autocmd FileType c ClangFormatAutoEnable
 
 :inoremap jk <esc>
+
+:highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+
+" Show trailing whitespace:
+:match ExtraWhitespace /\s\+$/
+
