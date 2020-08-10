@@ -81,6 +81,7 @@ autocmd FileType c ClangFormatAutoEnable
 
 :highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 
+" Show trailing whitespace except when typing at the end of the line
+:au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 " Show trailing whitespace:
-:match ExtraWhitespace /\s\+$/
-
+:au InsertLeave * match ExtraWhitespace /\s\+$/
