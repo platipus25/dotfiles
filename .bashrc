@@ -67,7 +67,7 @@ function pwd_git () {
 if [ "$color_prompt" = yes ]; then
   PROMPT_COMMAND='__git_ps1 "${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]$(pwd_git)\[\033[00m\]" "\\\$ "'
 else
-  PROMPT_COMMAND='__git_ps1 "${debian_chroot:+($debian_chroot)}\u@\h:$(pwd_git)" "\$"'
+  PROMPT_COMMAND='__git_ps1 "${debian_chroot:+($debian_chroot)}\u@\h:$(pwd_git)" "\$ "'
 fi
 unset color_prompt force_color_prompt
 
