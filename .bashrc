@@ -120,7 +120,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source ./git-prompt.sh
+source ~/git-prompt.sh
 export GIT_PS1_SHOWCOLORHINTS=true # Option for git-prompt.sh to show branch name in color
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_STATESEPARATOR=""
