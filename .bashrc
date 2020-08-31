@@ -60,7 +60,7 @@ function pwd_git () {
   if git rev-parse 2>/dev/null; then
     basename `git rev-parse --show-toplevel 2>/dev/null`
   else
-    pwd
+    dirs
   fi
 }
 
@@ -124,3 +124,6 @@ source ./git-prompt.sh
 export GIT_PS1_SHOWCOLORHINTS=true # Option for git-prompt.sh to show branch name in color
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_STATESEPARATOR=""
+
+alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
