@@ -128,5 +128,8 @@ export GIT_PS1_STATESEPARATOR=""
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias python=python3
 
+
+# for macos
+export BASH_SILENCE_DEPRECATION_WARNING=1
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export PATH="$PATH:/Users/ravago/Documents/Projects/flutter/bin"
