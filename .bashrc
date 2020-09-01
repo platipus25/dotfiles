@@ -37,7 +37,8 @@ fi
 
 function pwd_git () {
   if git rev-parse 2>/dev/null; then
-    basename `git rev-parse --show-toplevel 2>/dev/null`
+    local parent=$(dirname `git rev-parse --show-toplevel 2>/dev/null`)
+    echo ${PWD#*$parent/}
   else
     dirs
   fi
