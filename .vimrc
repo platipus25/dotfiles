@@ -60,6 +60,9 @@ Plug 'bazelbuild/vim-bazel'
 
 Plug 'rhysd/vim-clang-format'
 
+Plug 'jremmen/vim-ripgrep'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
 
 " Initialize plugin system
 call plug#end()
