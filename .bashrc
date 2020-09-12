@@ -109,6 +109,13 @@ export GIT_PS1_STATESEPARATOR=""
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias python=python3
 
+rg() {
+  if [ -t 1 ]; then
+    command rg -p "$@" | less -RFX
+  else
+    command rg "$@"
+  fi
+}
 
 # for macos
 export BASH_SILENCE_DEPRECATION_WARNING=1
