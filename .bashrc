@@ -106,6 +106,8 @@ export GIT_PS1_SHOWCOLORHINTS=true # Option for git-prompt.sh to show branch nam
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_STATESEPARATOR=""
 
+export CLICOLOR=true
+
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias python=python3
 
