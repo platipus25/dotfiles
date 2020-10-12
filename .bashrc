@@ -51,6 +51,7 @@ else
   PROMPT_COMMAND='__git_ps1 "${debian_chroot:+($debian_chroot)}\u@\h:$(pwd_git)" "\$ "'
 fi
 unset color_prompt force_color_prompt
+eval "$(starship init bash)"
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
