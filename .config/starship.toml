@@ -1,0 +1,40 @@
+
+
+# Disable the newline at the start of the prompt
+add_newline = false
+
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$docker_context\
+$golang\
+$java\
+$python\
+$rust\
+$swift\
+$memory_usage\
+$cmd_duration\
+$line_break\
+$character"""
+
+[directory]
+style = "bold blue"
+
+[memory_usage]
+disabled = true
+format = "with [$swap $symbol]($style)"
+
+[git_commit]
+commit_hash_length = 4
+
+[git_state]
+disabled = true
+
+[git_status]
+format = '([\($all_status$ahead_behind\)]($style) )'
+style = "bold blue"
