@@ -88,3 +88,6 @@ autocmd FileType c ClangFormatAutoEnable
 :au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 " Show trailing whitespace:
 :au InsertLeave * match ExtraWhitespace /\s\+$/
+" Delete trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
