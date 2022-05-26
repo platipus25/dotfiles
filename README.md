@@ -39,5 +39,5 @@
 ### Other nice things:
 - gnuradio
 - Cloudflare DNS
-- (Stats)[https://github.com/exelban/stats.git]
+- [Stats](https://github.com/exelban/stats.git)
 - Fira Code Nerd Font
