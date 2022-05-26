@@ -1,22 +1,24 @@
 # My dotfiles
 
 ### Most important:
-- bash
 - git
 - tmux
 - vim
 
 ### Useful:
-- bat
 - fzf
 - ripgrep
-- micro?
-- neovim?
-- ffmpeg?
-- websocketd?
+- fd
+- bottom
+- starship
+- bat
+- ffmpeg
+- tailscale
+- swaywm
 
 ### Languages:
 - python3
+- rust
 - nodejs
   - yarn
 - gcc/clang
@@ -24,6 +26,18 @@
 - gradle
   - adoptopenjdk
 - v (vlang)
-- rust
 - swift
 - lua?
+
+### Apps:
+- Alacritty
+- GIMP
+- Audacity
+- Blender
+- Inkscape
+
+### Other nice things:
+- gnuradio
+- Cloudflare DNS
+- (Stats)[https://github.com/exelban/stats.git]
+- Fira Code Nerd Font

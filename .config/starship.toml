@@ -1,40 +1,56 @@
-
-
-# Disable the newline at the start of the prompt
-add_newline = false
-
 format = """
-$username\
-$hostname\
-$directory\
+$cmd_duration\
+[$username@$hostname](bold green):$directory\
 $git_branch\
 $git_commit\
 $git_state\
 $git_status\
-$docker_context\
-$golang\
-$java\
-$python\
-$rust\
-$swift\
-$memory_usage\
-$cmd_duration\
-$line_break\
-$character"""
+$character\
+"""
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+[hostname]
+ssh_only = false
+format = "[$hostname](bold green)"
+disabled = false
+
+[username]
+style_user = "green bold"
+style_root = "red bold"
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+[character]
+success_symbol = "[\\$](bold blue)"
+error_symbol = "[\\$](bold red)"
 
 [directory]
 style = "bold blue"
+format = "[$path]($style)[$read_only]($read_only_style)"
 
-[memory_usage]
-disabled = true
-format = "with [$swap $symbol]($style)"
+[cmd_duration]
+format = "took [$duration]($style)\n"
+show_notifications = true
+min_time = 2_000
+
+[git_branch]
+format = "@[$branch]($style)"
+symbol = ""
+only_attached = true
 
 [git_commit]
-commit_hash_length = 4
-
-[git_state]
-disabled = true
+format = "[\\($hash$tag\\)]($style)"
+commit_hash_length = 7
 
 [git_status]
-format = '([\($all_status$ahead_behind\)]($style) )'
-style = "bold blue"
+format = '([$all_status$ahead_behind]($style))'
+disabled = true
+
+[git_state]
+format = '\([$state($progress_current/$progress_total)]($style)\)'
