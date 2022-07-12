@@ -12,6 +12,7 @@
 - bottom
 - starship
 - dust
+- dog
 - bat
 - ffmpeg
 - tailscale
