@@ -11,6 +11,7 @@
 - fd
 - bottom
 - starship
+- dust
 - bat
 - ffmpeg
 - tailscale
