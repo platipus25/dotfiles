@@ -74,6 +74,7 @@ Plug 'sainnhe/sonokai'
 Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
 
+Plug 'sheerun/vim-polyglot'
 
 Plug 'rhysd/vim-clang-format'
 
