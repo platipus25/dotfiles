@@ -28,11 +28,11 @@ set si "Smart indent
 " Highlight searches
 set hlsearch
 
-" Ignore case of searches
-set ignorecase
-
 " Highlight dynamically as pattern is typed
 set incsearch
+
+" Ignore case of searches
+set ignorecase
 
 " Enable mouse in all modes
 set mouse=a
@@ -42,8 +42,18 @@ if $TERM == 'alacritty'
   set ttymouse=sgr
 endif
 
+" Use space as the <leader> key
+let mapleader = "\<Space>"
+
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
+
+" Show trailing whitespace except when typing at the end of the line
+:au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+" Show trailing whitespace:
+:au InsertLeave * match ExtraWhitespace /\s\+$/
+" Delete trailing whitespace on save
+"autocmd BufWritePre * :%s/\s\+$//e
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -56,6 +66,8 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+" Colorscheme
+Plug 'sainnhe/sonokai'
 
 " Add maktaba and bazel to the runtimepath.
 " (The latter must be installed before it can be used.)
@@ -75,6 +87,18 @@ Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
 " Initialize plugin system
 call plug#end()
 
+" Important!!
+if has('termguicolors')
+  set termguicolors
+endif
+
+" The configuration options should be placed before `colorscheme sonokai`.
+let g:sonokai_style = 'andromeda'
+let g:sonokai_better_performance = 1
+
+colorscheme sonokai
+
+
 " map to <Leader>cf in C++ code
 autocmd FileType c,cpp,objc nnoremap <buffer><C-K> :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><C-K> <c-o>:ClangFormat<CR>
@@ -84,9 +108,9 @@ function! Formatonsave()
   let l:formatdiff = 1
   :ClangFormat
 endfunction
-autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
+"autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
 
-autocmd FileType c ClangFormatAutoEnable
+"autocmd FileType c ClangFormatAutoEnable
 
 :inoremap jk <esc>
 
@@ -105,13 +129,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 :highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-
-" Show trailing whitespace except when typing at the end of the line
-:au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-" Show trailing whitespace:
-:au InsertLeave * match ExtraWhitespace /\s\+$/
-" Delete trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
 
 set rtp+=/usr/local/opt/fzf
 
