@@ -1,6 +1,6 @@
 " Use the Elflord theme
 set background=dark
-colorscheme elflord
+colorscheme slate
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
@@ -37,6 +37,11 @@ set incsearch
 " Enable mouse in all modes
 set mouse=a
 
+" Fix mouse in alacritty
+if $TERM == 'alacritty'
+  set ttymouse=sgr
+endif
+
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
@@ -59,12 +64,13 @@ Plug 'bazelbuild/vim-bazel'
 
 
 Plug 'rhysd/vim-clang-format'
-Plug 'vim-syntastic/syntastic'
 
 Plug 'jremmen/vim-ripgrep'
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
 Plug 'rust-lang/rust.vim'
+
+Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
 
 " Initialize plugin system
 call plug#end()
@@ -108,3 +114,14 @@ let g:syntastic_check_on_wq = 0
 autocmd BufWritePre * :%s/\s\+$//e
 
 set rtp+=/usr/local/opt/fzf
+
+" General colors
+if has('gui_running') || has('nvim')
+    hi Normal 		guifg=#ffffff guibg=#1a1d21
+else
+    " Set the terminal default background and foreground colors, thereby
+    " improving performance by not needing to set these colors on empty cells.
+    hi Normal guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE
+    let &t_ti = &t_ti . "\033]10;#ffffff\007\033]11;#1a1d21\007"
+    let &t_te = &t_te . "\033]110\007\033]111\007"
+endif
