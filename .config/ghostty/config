@@ -1,0 +1,8 @@
+theme = platipus25-theme
+#bold-is-bright = true
+
+font-family = "Fira Code Retina"
+font-family-bold = "Fira Code Bold"
+font-size = 14
+adjust-cell-width = -5%
+adjust-cell-height = -5%
