@@ -21,6 +21,24 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.api.nvim_create_user_command('E', 'Explore <args>', { nargs = '?', complete = 'dir' })
+
+vim.opt.expandtab = true    -- Use spaces instead of tabs
+vim.opt.shiftwidth = 2     -- Size of an indent (number of spaces)
+vim.opt.tabstop = 2        -- Number of spaces tabs count for
+vim.opt.softtabstop = 2    -- Number of spaces tabs count for while editing
+
+-- Highlight searches
+vim.opt.hlsearch = true
+
+-- Highlight dynamically as pattern is typed
+vim.opt.incsearch = true
+
+-- Highlight trailing whitespace
+vim.opt.list = true
+vim.opt.listchars = { trail = '·', tab = '» ' }
+
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
@@ -44,8 +62,11 @@ require("lazy").setup({
       ---@module "fzf-lua"
       ---@type fzf-lua.Config|{}
       ---@diagnostic disable: missing-fields
-      opts = {}
+      opts = {},
       ---@diagnostic enable: missing-fields
+      config = function()
+        require('fzf-lua').setup_fzfvim_cmds()
+      end
     },
     {
       "folke/which-key.nvim",
@@ -66,12 +87,20 @@ require("lazy").setup({
         },
       },
     },
+    {
+      "mason-org/mason-lspconfig.nvim",
+      opts = {
+        ensure_installed = { "lua_ls", "rust_analyzer" }
+      },
+      dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+        "neovim/nvim-lspconfig",
+      },
+    },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "unokai" } },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = { enabled = true, notify = false },
 })
-
-vim.api.nvim_create_user_command('E', 'Explore <args>', { nargs = '?', complete = 'dir' })
