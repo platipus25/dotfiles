@@ -83,11 +83,11 @@ Plug 'sheerun/vim-polyglot'
 Plug 'rhysd/vim-clang-format'
 
 Plug 'jremmen/vim-ripgrep'
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'rust-lang/rust.vim'
 
-Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+"Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
 
 " Initialize plugin system
 call plug#end()
