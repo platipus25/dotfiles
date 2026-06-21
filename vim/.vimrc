@@ -55,6 +55,10 @@ set ffs=unix,dos,mac
 " Delete trailing whitespace on save
 "autocmd BufWritePre * :%s/\s\+$//e
 
+" We need to enable the builtin plugin (added in 9.1)
+" adds the gc command to toggle commentedness
+packadd comment
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
