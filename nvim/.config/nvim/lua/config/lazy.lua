@@ -38,6 +38,7 @@ vim.opt.incsearch = true
 vim.opt.list = true
 vim.opt.listchars = { trail = '·', tab = '» ' }
 
+vim.opt.clipboard = "unnamedplus"
 
 -- Setup lazy.nvim
 require("lazy").setup({
